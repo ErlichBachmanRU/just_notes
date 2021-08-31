@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">just notes</string>
+    <string name="name_note1">Заметка1</string>
+    <string name="name_note2">Заметка2</string>
+    <string name="name_note3">Заметка3</string>
+    <string name="body_name_note1">Заметка1_тело_описание_заметки</string>
+    <string name="body_name_note2">Заметка2_тело_описание_заметки</string>
+    <string name="body_name_note3">Заметка3_тело_описание_заметки</string>
 </resources>
