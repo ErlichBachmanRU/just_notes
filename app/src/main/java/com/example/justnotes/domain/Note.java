@@ -8,22 +8,6 @@ import androidx.annotation.StringRes;
 
 public class Note implements Parcelable {
 
-    @StringRes
-    private int nameNote ;
-
-    @StringRes
-    private int bodyNote ;
-
-    public Note(int nameNote, int bodyNote) {
-        this.nameNote = nameNote;
-        this.bodyNote = bodyNote;
-    }
-
-    protected Note(Parcel in) {
-        nameNote = in.readInt();
-        bodyNote = in.readInt();
-    }
-
     public static final Creator<Note> CREATOR = new Creator<Note>() {
         @Override
         public Note createFromParcel(Parcel in) {
@@ -35,6 +19,20 @@ public class Note implements Parcelable {
             return new Note[size];
         }
     };
+    @StringRes
+    private final int nameNote;
+    @StringRes
+    private final int bodyNote;
+
+    public Note(int nameNote, int bodyNote) {
+        this.nameNote = nameNote;
+        this.bodyNote = bodyNote;
+    }
+
+    protected Note(Parcel in) {
+        nameNote = in.readInt();
+        bodyNote = in.readInt();
+    }
 
     public int getNameNote() {
         return nameNote;

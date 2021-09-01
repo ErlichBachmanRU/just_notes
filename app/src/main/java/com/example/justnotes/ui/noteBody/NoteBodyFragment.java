@@ -15,16 +15,16 @@ public class NoteBodyFragment extends Fragment {
 
     private static final String ARG_NOTE = "ARG_NOTE";
 
-    public static NoteBodyFragment newInstance(Note note){
-        NoteBodyFragment fragmants = new NoteBodyFragment();
-        Bundle arguments = new Bundle();
-        arguments.putParcelable(ARG_NOTE,note);
-        fragmants.setArguments(arguments);
-        return fragmants;
+    public NoteBodyFragment() {
+        super(R.layout.fragment_note_body);
     }
 
-    public NoteBodyFragment(){
-        super(R.layout.fragment_note_body);
+    public static NoteBodyFragment newInstance(Note note) {
+        NoteBodyFragment fragmants = new NoteBodyFragment();
+        Bundle arguments = new Bundle();
+        arguments.putParcelable(ARG_NOTE, note);
+        fragmants.setArguments(arguments);
+        return fragmants;
     }
 
     @Override

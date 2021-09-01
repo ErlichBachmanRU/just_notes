@@ -24,7 +24,7 @@ public class NotesListFragment extends Fragment implements NotesListView {
     private NotesListPresenter presenter;
     private LinearLayout container;
 
-    public NotesListFragment(){
+    public NotesListFragment() {
         super(R.layout.fragment_note_list);
     }
 
@@ -51,9 +51,9 @@ public class NotesListFragment extends Fragment implements NotesListView {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(requireContext(), NoteBodyActivity.class);
-                    intent.putExtra(NoteBodyActivity.ARG_NOTE_BODY,note);
+                    intent.putExtra(NoteBodyActivity.ARG_NOTE_BODY, note);
                     startActivity(intent);
-                    Toast.makeText(requireContext(),note.getNameNote(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(requireContext(), note.getNameNote(), Toast.LENGTH_SHORT).show();
                 }
             });
             TextView noteName = noteItem.findViewById(R.id.name_list_item);

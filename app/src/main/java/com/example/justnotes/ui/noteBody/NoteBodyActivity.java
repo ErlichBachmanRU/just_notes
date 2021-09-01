@@ -1,9 +1,10 @@
 package com.example.justnotes.ui.noteBody;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
-import android.os.Bundle;
 import com.example.justnotes.R;
 import com.example.justnotes.domain.Note;
 
@@ -18,10 +19,10 @@ public class NoteBodyActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
 
-        Note note =getIntent().getParcelableExtra(ARG_NOTE_BODY);
+        Note note = getIntent().getParcelableExtra(ARG_NOTE_BODY);
 
         fragmentManager.beginTransaction()
-                .replace(R.id.containerBody,NoteBodyFragment.newInstance(note),"NoteBodyFragment")
+                .replace(R.id.containerBody, NoteBodyFragment.newInstance(note), "NoteBodyFragment")
                 .commit();
     }
 }
