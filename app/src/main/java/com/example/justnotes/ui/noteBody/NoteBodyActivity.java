@@ -17,12 +17,16 @@ public class NoteBodyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_body);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        if (getResources().getBoolean(R.bool.itsLandscape)) {
+            finish();
+        } else {
+            FragmentManager fragmentManager = getSupportFragmentManager();
 
-        Note note = getIntent().getParcelableExtra(ARG_NOTE_BODY);
+            Note note = getIntent().getParcelableExtra(ARG_NOTE_BODY);
 
-        fragmentManager.beginTransaction()
-                .replace(R.id.containerBody, NoteBodyFragment.newInstance(note), "NoteBodyFragment")
-                .commit();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.containerBody, NoteBodyFragment.newInstance(note), "NoteBodyFragment")
+                    .commit();
+        }
     }
 }
