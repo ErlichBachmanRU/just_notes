@@ -7,7 +7,7 @@
     android:orientation="horizontal">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/container_note_list"
+        android:id="@+id/main_container"
         android:name="com.example.justnotes.ui.noteList.NotesListFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -24,7 +24,7 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/container_note_list"
+        app:layout_constraintStart_toEndOf="@id/main_container"
         app:layout_constraintTop_toTopOf="parent"
         tools:context=".ui.MainActivity" />
 

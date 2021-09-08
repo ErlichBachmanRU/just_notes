@@ -2,6 +2,8 @@ package com.example.justnotes.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +22,44 @@ public class MainActivity extends AppCompatActivity implements NotesListFragment
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        findViewById(R.id.item_menu_create_note).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_container, new CreateNoteFragment(), "CreateNoteFragment")
+                        .addToBackStack(null)
+                        .commit();
+
+                Toast.makeText(MainActivity.this, "clicked Create", Toast.LENGTH_SHORT).show();
+            }
+        });
+        findViewById(R.id.item_menu_info).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_container, new InfoAppFragment(), "InfoAppFragment")
+                        .addToBackStack(null)
+                        .commit();
+                Toast.makeText(MainActivity.this, "clicked info", Toast.LENGTH_SHORT).show();
+            }
+        });
+        findViewById(R.id.item_menu_notes).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_container, new NotesListFragment(), "NotesListFragment")
+                        .addToBackStack(null)
+                        .commit();
+                Toast.makeText(MainActivity.this, "clicked NotesList", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+
 
     @Override
     public void onNoteOnClicked(Note note) {

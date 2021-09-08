@@ -4,12 +4,19 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/android/justnotes/app/src/main/res/layout-land/activity_main.xml" value="0.16" />
+        <entry key="..\:/android/justnotes/app/src/main/res/layout/activity_bottom_menu.xml" value="0.259375" />
         <entry key="..\:/android/justnotes/app/src/main/res/layout/activity_main.xml" value="0.259375" />
         <entry key="..\:/android/justnotes/app/src/main/res/layout/activity_note_body.xml" value="0.259375" />
+        <entry key="..\:/android/justnotes/app/src/main/res/layout/activity_test.xml" value="0.2713541666666667" />
+        <entry key="..\:/android/justnotes/app/src/main/res/layout/fragment_create_note.xml" value="0.259375" />
+        <entry key="..\:/android/justnotes/app/src/main/res/layout/fragment_info_app.xml" value="0.20833333333333334" />
         <entry key="..\:/android/justnotes/app/src/main/res/layout/fragment_note_body.xml" value="0.2" />
         <entry key="..\:/android/justnotes/app/src/main/res/layout/fragment_note_list.xml" value="0.2713541666666667" />
+        <entry key="..\:/android/justnotes/app/src/main/res/layout/fragment_notifications.xml" value="0.259375" />
         <entry key="..\:/android/justnotes/app/src/main/res/layout/item_note.xml" value="0.259375" />
         <entry key="..\:/android/justnotes/app/src/main/res/layout/old_fragment_note_body.xml" value="0.259375" />
+        <entry key="..\:/android/justnotes/app/src/main/res/menu/bottom_menu.xml" value="0.259375" />
+        <entry key="..\:/android/justnotes/app/src/main/res/menu/bottom_nav_menu.xml" value="0.259375" />
       </map>
     </option>
   </component>
