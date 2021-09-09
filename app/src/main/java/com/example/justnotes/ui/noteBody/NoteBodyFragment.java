@@ -7,13 +7,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 
 import com.example.justnotes.R;
 import com.example.justnotes.domain.Note;
+import com.example.justnotes.ui.noteList.NotesListFragment;
 
 public class NoteBodyFragment extends Fragment {
 
     private static final String ARG_NOTE = "ARG_NOTE";
+    private TextView nameItem;
+    private TextView bodyNote;
 
     public NoteBodyFragment() {
         super(R.layout.fragment_note_body);
@@ -30,12 +34,26 @@ public class NoteBodyFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Note note = getArguments().getParcelable(ARG_NOTE);
+        nameItem = view.findViewById(R.id.name_list_item);
+        bodyNote = view.findViewById(R.id.body_note);
 
-        TextView nameItem = view.findViewById(R.id.name_list_item);
-        nameItem.setText(note.getNameNote());
+        getParentFragmentManager().setFragmentResultListener(NotesListFragment.KEY_SELECTED_NOTE, getViewLifecycleOwner(), new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                Note note = result.getParcelable(NotesListFragment.ARG_NOTE);
+                displayNote(note);
+            }
+        });
+        if (getArguments() != null && getArguments().containsKey(ARG_NOTE)) {
+            Note note = getArguments().getParcelable(ARG_NOTE);
+            if (note != null) {
+                displayNote(note);
+            }
+        }
+    }
 
-        TextView bodyNote = view.findViewById(R.id.body_note);
+    private void displayNote(Note note) {
         bodyNote.setText(note.getBodyNote());
+        nameItem.setText(note.getNameNote());
     }
 }
