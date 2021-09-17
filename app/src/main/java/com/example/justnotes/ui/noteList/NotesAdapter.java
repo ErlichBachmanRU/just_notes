@@ -19,15 +19,6 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
     private final ArrayList<Note> data = new ArrayList<>();
     private OnNoteClicked onNoteClicked;
 
-    public OnNoteClicked getOnNoteClicked() {
-        return onNoteClicked;
-    }
-
-    public void setOnNoteClicked(OnNoteClicked onNoteClicked) {
-        this.onNoteClicked = onNoteClicked;
-    }
-
-
 
     public void setNotes(List<Note> toSet) {
         data.clear();
@@ -54,6 +45,14 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         return data.size();
     }
 
+    public OnNoteClicked getOnNoteClicked() {
+        return onNoteClicked;
+    }
+
+    public void setOnNoteClicked(OnNoteClicked onNoteClicked) {
+        this.onNoteClicked = onNoteClicked;
+    }
+
     interface OnNoteClicked {
         void onNoteOnClicked(Note note);
     }
@@ -63,6 +62,12 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
 
         public NotesViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            itemView.setOnClickListener(view -> {
+                if (getOnNoteClicked() != null) {
+                    getOnNoteClicked().onNoteOnClicked(data.get(getAdapterPosition()));
+                }
+            });
             noteName = itemView.findViewById(R.id.name_list_item);
         }
 
