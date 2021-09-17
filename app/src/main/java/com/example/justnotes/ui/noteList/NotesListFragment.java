@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.justnotes.R;
 import com.example.justnotes.domain.Note;
-import com.example.justnotes.domain.SomeNotesRepo;
+import com.example.justnotes.domain.MockSomeNotesRepo;
 import com.example.justnotes.ui.noteBody.NoteBodyActivity;
 
 import java.util.List;
@@ -43,7 +43,7 @@ public class NotesListFragment extends Fragment implements NotesListView {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        presenter = new NotesListPresenter(this, new SomeNotesRepo());
+        presenter = new NotesListPresenter(this, new MockSomeNotesRepo());
         adapter.setOnNoteClicked(new NotesAdapter.OnNoteClicked() {
             @Override
             public void onNoteOnClicked(Note note) {
