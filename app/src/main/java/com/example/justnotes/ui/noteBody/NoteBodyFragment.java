@@ -7,7 +7,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
 
 import com.example.justnotes.R;
 import com.example.justnotes.domain.Note;
@@ -24,11 +23,11 @@ public class NoteBodyFragment extends Fragment {
     }
 
     public static NoteBodyFragment newInstance(Note note) {
-        NoteBodyFragment fragmants = new NoteBodyFragment();
+        NoteBodyFragment fragments = new NoteBodyFragment();
         Bundle arguments = new Bundle();
         arguments.putParcelable(ARG_NOTE, note);
-        fragmants.setArguments(arguments);
-        return fragmants;
+        fragments.setArguments(arguments);
+        return fragments;
     }
 
     @Override
@@ -37,12 +36,9 @@ public class NoteBodyFragment extends Fragment {
         nameItem = view.findViewById(R.id.name_list_item);
         bodyNote = view.findViewById(R.id.body_note);
 
-        getParentFragmentManager().setFragmentResultListener(NotesListFragment.KEY_SELECTED_NOTE, getViewLifecycleOwner(), new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                Note note = result.getParcelable(NotesListFragment.ARG_NOTE);
-                displayNote(note);
-            }
+        getParentFragmentManager().setFragmentResultListener(NotesListFragment.KEY_SELECTED_NOTE, getViewLifecycleOwner(), (requestKey, result) -> {
+            Note note = result.getParcelable(NotesListFragment.ARG_NOTE);
+            displayNote(note);
         });
         if (getArguments() != null && getArguments().containsKey(ARG_NOTE)) {
             Note note = getArguments().getParcelable(ARG_NOTE);
