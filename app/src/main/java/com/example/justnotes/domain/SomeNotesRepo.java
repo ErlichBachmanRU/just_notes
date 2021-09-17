@@ -15,7 +15,10 @@ public class SomeNotesRepo implements NoteRepository {
         notes.add(new Note(R.string.name_note2, R.string.body_name_note2));
         notes.add(new Note(R.string.name_note3, R.string.body_name_note3));
 
+        for (int i = 0; i < 10000000 ; i++) {
+            notes.add(new Note(R.string.name_note3, R.string.body_name_note3));
 
+        }
         return notes;
     }
 }
