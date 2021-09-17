@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
             if (item.getItemId() == R.id.item_menu_notes) {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.main_container, new NotesListFragment(), "NotesListFragment")
-                        .addToBackStack("InfoAppFragment")
+                        .addToBackStack("NotesListFragment")
                         .commit();
                 return true;
             }
@@ -35,7 +35,14 @@ public class MainActivity extends AppCompatActivity {
             if (item.getItemId() == R.id.item_menu_create_note) {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.main_container, new CreateNoteFragment(), "CreateNoteFragment")
-                        .addToBackStack("InfoAppFragment")
+                        .addToBackStack("CreateNoteFragment")
+                        .commit();
+                return true;
+            }
+            if (item.getItemId() == R.id.item_menu_login) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.main_container, new AuthFragment(), "AuthFragment")
+                        .addToBackStack("SigninFragment")
                         .commit();
                 return true;
             }

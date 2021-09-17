@@ -5,7 +5,7 @@ import com.example.justnotes.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SomeNotesRepo implements NoteRepository {
+public class MockSomeNotesRepo implements NoteRepository {
 
     @Override
     public List<Note> getNotes() {

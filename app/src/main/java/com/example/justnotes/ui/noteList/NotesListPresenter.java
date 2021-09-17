@@ -1,7 +1,7 @@
 package com.example.justnotes.ui.noteList;
 
 import com.example.justnotes.domain.Note;
-import com.example.justnotes.domain.SomeNotesRepo;
+import com.example.justnotes.domain.MockSomeNotesRepo;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ public class NotesListPresenter {
 
     private final NotesListView view;
 
-    private final SomeNotesRepo repository;
+    private final MockSomeNotesRepo repository;
 
-    public NotesListPresenter(NotesListView view, SomeNotesRepo repository) {
+    public NotesListPresenter(NotesListView view, MockSomeNotesRepo repository) {
         this.view = view;
         this.repository = repository;
     }
